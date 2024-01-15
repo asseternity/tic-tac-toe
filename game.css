@@ -27,7 +27,7 @@ p {
     font-style: italic;
 }
 
-.rps_buttons, #rps_area, #rps_score {
+.rps_buttons, .fe_buttons, #rps_area, #rps_score {
     margin-left: 20px;
     margin-top: 10px;
 }
