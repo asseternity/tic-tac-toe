@@ -21,45 +21,55 @@
         </div>
         
         <div class="tto_container">
-            <h2>Tic Tac Toe!</h3>
+            <h2>Tic Tac Toe!</h2>
             <p>You play as X. Click on any spot in the grid to start.</p>
             <table>
                 <tr>
-                    <td>
-                        _
+                    <td id="topleft">
+                        <div id="topleft_area">_</div>
                     </td>
-                    <td>
-                        _
+                    <td id="topcenter">
+                        <div id="topcenter_area">_</div>
                     </td>
-                    <td>
-                        _
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        _
-                    </td>
-                    <td>
-                        _
-                    </td>
-                    <td>
-                        _
+                    <td id="topright">
+                        <div id="topright_area">_</div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        _
+                    <td id="midleft">
+                        <div id="midleft_area">_</div>
                     </td>
-                    <td>
-                        _
+                    <td id="midcenter">
+                        <div id="midcenter_area">_</div>
                     </td>
-                    <td>
-                        _
+                    <td id="midright">
+                        <div id="midright_area">_</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="botleft">
+                        <div id="botleft_area">_</div>
+                    </td>
+                    <td id="botcenter">
+                        <div id="botcenter_area">_</div>
+                    </td>
+                    <td id="botright">
+                        <div id="botright_area">_</div>
                     </td>
                 </tr>
             </table>
         </div>
+        <div class="fe_container">
+            <h2>Fire Emblem weapon triangle!</h3>
+                <div class="fe_buttons">
+                    <button onclick="match_fe()">Play Fire Emblem weapon triangle!</button>
+                </div>
+                <div id="fe_area"></div>
+                <div id="fe_score"></div>
+            </div>
+        </div>
     </div>
 <script src="game.js"></script>
+<script src="game2.js"></script>
 </body>
 </html>
