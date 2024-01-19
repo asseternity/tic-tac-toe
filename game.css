@@ -8,14 +8,26 @@
 
 .container {
     display: grid;
+    grid-template-areas:
+        'rps tto'
+        'fe pokemon'
+    ;
 }
 
 .rps_container {
-    grid-column: 1;
+    grid-area: rps;
 }
 
 .tto_container {
-    grid-column: 2;
+    grid-area: tto;
+}
+
+.fe_container {
+    grid-area: fe;
+}
+
+.pokemon_container {
+    grid-area: pokemon;
 }
 
 h2 {
@@ -27,7 +39,7 @@ p {
     font-style: italic;
 }
 
-.rps_buttons, .fe_buttons, #rps_area, #rps_score {
+.rps_buttons, .fe_buttons, #rps_area, #rps_score, #pokemon_buttons {
     margin-left: 20px;
     margin-top: 10px;
 }
@@ -59,3 +71,4 @@ td {
 td:hover {
     background-color: chocolate;
 }
+
