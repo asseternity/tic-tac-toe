@@ -76,34 +76,3 @@ document.getElementById('player_scissors').addEventListener("click", function(ev
     if (result == 'Win') { rps_player_score++ } else if (result == 'Lose') { rps_pc_score++ };
     rps_score_area.textContent = `The current score is Player: ${rps_player_score} - Computer: ${rps_pc_score}.`
 });
-
-let topleft_area = document.getElementById('topleft_area');
-let topcenter_area = document.getElementById('topcenter_area');
-let topright_area = document.getElementById('topright_area');
-let midleft_area = document.getElementById('midleft_area');
-let midcenter_area = document.getElementById('midcenter_area');
-let midright_area = document.getElementById('midright_area');
-let botleft_area = document.getElementById('botleft_area');
-let botcenter_area = document.getElementById('botcenter_area');
-let botright_area = document.getElementById('botright_area');
-let win = false;
-
-document.getElementById('topleft').addEventListener("click", function() { playermove(topleft_area) } );
-document.getElementById('topcenter').addEventListener("click", function() { playermove(topcenter_area) } );
-document.getElementById('topright').addEventListener("click", function() { playermove(topright_area) } );
-
-document.getElementById('midleft').addEventListener("click", function() { playermove(midleft_area) } );
-document.getElementById('midcenter').addEventListener("click", function() { playermove(midcenter_area) } );
-document.getElementById('midright').addEventListener("click", function() { playermove(midright_area) } );
-
-document.getElementById('botleft').addEventListener("click", function() { playermove(botleft_area) } );
-document.getElementById('botcenter').addEventListener("click", function() { playermove(botcenter_area) } );
-document.getElementById('botright').addEventListener("click", function() { playermove(botright_area) } );
-
-function playermove(square) {
-    let area = square;
-    area.textContent = 'X';
-    if (topleft_area.textContent == 'X' && topcenter_area.textContent == 'X' && topright_area.textContent == 'X' && win == false) { win = true; console.log('You win!') } 
-    else if (midleft_area.textContent == 'X' && midcenter_area.textContent == 'X' && midright_area.textContent == 'X' && win == false) { win = true; console.log('You win!') } 
-    else if (botleft_area.textContent == 'X' && botcenter_area.textContent == 'X' && botright_area.textContent == 'X' && win == false) { win = true; console.log('You win!') };
-};
