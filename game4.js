@@ -12,8 +12,7 @@ let createPlayer = (function(letter) {
                         let index = gameboardObject.blocks.findIndex(i => i == tile);
                         let placedTile = gameboardObject.blocks.splice(index, 1);
                         this.marks.push(placedTile.join());
-                        controlGameObject.lastMove = letter;
-                        let marked;
+                        controlGameObject.lastMove = this.letter;
                         switch(tile) {
                             case 'topright':
                                 document.querySelector('#square3').setAttribute('style', 'font-size: 500%; text-align:center;')
@@ -52,7 +51,6 @@ let createPlayer = (function(letter) {
                                 document.querySelector('#square7').textContent = `${letter}`;
                                 break;                        
                         }
-                        console.log(controlGameObject.checkWin(this));
                         if (controlGameObject.checkWin(this) == 'game continues') {
                             computerMove();
                         }
@@ -83,8 +81,10 @@ let controlGameObject = (function() {
             (player.marks.includes('topleft') && player.marks.includes('midleft') && player.marks.includes('botleft')) ||
             (player.marks.includes('topright') && player.marks.includes('midcenter') && player.marks.includes('botleft')) ||
             (player.marks.includes('botright') && player.marks.includes('midcenter') && player.marks.includes('topleft'))) {
+                gameEnder(player.letter);
                 return gameStatus = `${player.letter} wins`;
             } else if (gameboardObject.blocks.length == 0) {
+                gameEnder('draw');
                 return gameStatus = 'draw';
             } else {
                 return gameStatus = 'game continues';
@@ -168,4 +168,29 @@ function computerMove() {
         let random = Math.floor(Math.random() * gameboardObject.blocks.length);
         randomSquare = gameboardObject.blocks[random];
         player2.place(randomSquare);
+}
+
+function gameEnder(result) {
+    let displayText = document.createElement('p');
+    if (result == 'draw') {
+        displayText.textContent = `The game is over! Draw game!`;
+    } else {
+        displayText.textContent = `The game is over! ${result} wins!`;
+    }
+    container.appendChild(displayText);
+    let resetButton =  document.createElement('button');
+    resetButton.textContent = 'Play again!';
+    container.appendChild(resetButton);
+    resetButton.addEventListener('click', () => {
+        while (board.firstChild) {board.removeChild(board.firstChild)};
+        for (let i = 1; i <= 9; i++) {
+            createSquare(i);
+        }
+        gameboardObject.blocks = ['topright', 'topleft', 'topcenter', 'midright', 'midleft', 'midcenter', 'botright', 'botleft', 'botcenter'];
+        player1.marks = [];
+        player2.marks = []; 
+        controlGameObject.lastMove = '';   
+        container.removeChild(displayText);
+        container.removeChild(resetButton);
+    })
 }
